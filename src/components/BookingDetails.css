@@ -1,0 +1,76 @@
+.booking-details {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 16px;
+    background-color: #fdfdfd;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .booking-details h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+  }
+  
+  .booking-details form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  
+  .booking-details label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 4px;
+  }
+  
+  .booking-details input {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+  }
+  
+  .booking-details input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .booking-details button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .booking-details button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .booking-details button:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+  
+  .booking-details p {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .booking-details p[style*="color:green"] {
+    color: #28a745 !important;
+  }
+  
+  .booking-details p[style*="color:red"] {
+    color: #dc3545 !important;
+  }
+  

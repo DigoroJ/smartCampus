@@ -1,0 +1,52 @@
+/* BookingsList.css */
+.bookings-container {
+    padding: 20px;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .error {
+    color: red;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .status-badge {
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+  
+  .status-pending {
+    background-color: #fff3e0;
+  }
+  
+  .status-confirmed {
+    background-color: #e8f5e9;
+  }
+  
+  .status-cancelled {
+    background-color: #ffebee;
+  }
+  
+  .view-button {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
