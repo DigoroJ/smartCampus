@@ -1,6 +1,7 @@
 // components/Dashboard.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DataFetcher from './../DataFetcher'
 
 function Dashboard() {
   return (
@@ -12,7 +13,13 @@ function Dashboard() {
         <li><Link to="/notifications">Notifications</Link></li>
         <li><Link to="/report">Report an Issue</Link></li>
       </ul>
+
+      <div>
+        <h1>My React App</h1>
+        <DataFetcher />
+      </div>
     </div>
+    
   );
 }
 

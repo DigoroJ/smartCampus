@@ -12,7 +12,7 @@ import './styles.css';
 
 
 function App() {
-  return (
+  return ( 
     <Router>
       <Routes>
         <Route path='/' element={<LoginPage />} />
