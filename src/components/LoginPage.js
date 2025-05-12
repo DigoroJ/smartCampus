@@ -1,20 +1,43 @@
-// components/Login.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import './Auth.css';
 
 function LoginPage() {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
-    if (username === 'student' && password === '1234') {
-      navigate('/dashboard');
-    } else if (username === 'admin' && password === 'admin') {
-      navigate('/admin');
-    } else {
-      alert('Invalid credentials');
+    navigate('/signUp'); 
+  };
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await axios.post('http://localhost:5000/api/login', {
+        email,
+        password,
+      });
+      console.log('details', res);
+      // Save
+      localStorage.setItem('user', JSON.stringify(res.data));
+
+      // Access
+      const user = JSON.parse(localStorage.getItem('user'));
+
+      alert('Hello ' + user.name + ' ' + user.surname)
+
+      if (res.data.role === 'student') {
+        navigate('/dashboard');
+      } else if (res.data.role === 'admin') {
+        navigate('/admin');
+      } else {
+        alert('Login successful, but unknown role.');
+      }
+    } catch (err) {
+      alert('Login failed: ' + (err.response?.data?.message || 'Server error'));
     }
   };
 
@@ -23,10 +46,10 @@ function LoginPage() {
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          type="email"
+          placeholder="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
@@ -34,7 +57,8 @@ function LoginPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <button onClick={handleLogin}>Login</button>
+        <button onClick={handleSignUp}>Sign up</button>
       </form>
     </div>
   );

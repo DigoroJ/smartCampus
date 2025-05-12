@@ -1,21 +1,47 @@
-// components/Notifications.jsx
-import React from 'react';
+
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Notifications() {
-  const messages = [
-    'Library will be closed on Friday for maintenance.',
-    'New course materials have been uploaded for Mathematics.',
-    'Your study room booking for tomorrow is confirmed.',
-  ];
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    navigate('/');
+  };
+
+  const [messages, setNotifications] = useState([]);
+  
+        useEffect(() => {
+            const fetchData = async () => {
+                try {
+                    const response = await fetch('http://localhost:5000/api/getNotifications');
+                    const result = await response.json();
+                    setNotifications(result);          
+                } catch (error) {
+                    console.error('Error fetching data:', error);
+                }
+            };
+    
+            fetchData();
+        }, []);
 
   return (
-    <div className="notifications">
-      <h2>Notifications</h2>
-      <ul>
-        {messages.map((msg, index) => (
-          <li key={index}>{msg}</li>
-        ))}
-      </ul>
+    <div className="dashboard-container">
+
+      <div className="dashboard-header">
+        <button className="back-button" onClick={() => navigate(-1)}>← Back</button>
+        <button className="logout-button" onClick={handleLogout}>Logout</button>
+      </div>
+      <div className="notifications">
+        <h2>Notifications</h2>
+        <ul>
+          {messages.map((msg) => (
+            <li key={msg.id}>{msg.msg}</li>
+          ))}
+        </ul>
+      </div>
+    <div className="dashboard-container"></div>
     </div>
   );
 }

@@ -8,6 +8,7 @@ import Notifications from './components/Notifications';
 import Timetable from './components/Timetable';
 import Booking from './components/Booking';
 import ReportIssue from './components/ReportIssue';
+import SignUpPage from './components/SignUpPage';
 import './styles.css';
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route path='/timetable' element={<Timetable />} />
         <Route path='/booking' element={<Booking />} />
         <Route path='/report-issue' element={<ReportIssue />} />
+        <Route path='/signUp' element={<SignUpPage/>}/>
       </Routes>
     </Router>
   );

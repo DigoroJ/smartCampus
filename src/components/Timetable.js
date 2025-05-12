@@ -1,7 +1,13 @@
-// components/Timetable.jsx
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Timetable() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    navigate('/');
+  };
   const schedule = [
     { day: 'Monday', subject: 'Mathematics', time: '09:00 - 10:30' },
     { day: 'Tuesday', subject: 'Physics', time: '10:45 - 12:15' },
@@ -11,7 +17,13 @@ function Timetable() {
   ];
 
   return (
-    <div className="timetable">
+    <div className="dashboard-container">
+      <div className="dashboard-header">
+        <button className="back-button" onClick={() => navigate(-1)}>← Back</button>
+        <button className="logout-button" onClick={handleLogout}>Logout</button>
+      </div>
+
+      <div className="timetable">
       <h2>Student Timetable</h2>
       <table>
         <thead>
@@ -31,6 +43,7 @@ function Timetable() {
           ))}
         </tbody>
       </table>
+    </div>
     </div>
   );
 }
