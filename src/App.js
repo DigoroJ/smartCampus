@@ -9,6 +9,13 @@ import Timetable from './components/Timetable';
 import Booking from './components/Booking';
 import ReportIssue from './components/ReportIssue';
 import SignUpPage from './components/SignUpPage';
+import StudentDashboard from './components/StudentDashboard';
+import EditProfile from './components/EditProfile';
+import SetTimetable from './components/SetTimetable';
+import RegisterSubjects from './components/RegisterSubjects';
+import AddCourseSubject from './components/AddCourseSubject';
+import LectDashboard from './components/LectDashboard';
+import Appointments from './components/Appointments';
 import './styles.css';
 
 
@@ -24,6 +31,13 @@ function App() {
         <Route path='/booking' element={<Booking />} />
         <Route path='/report-issue' element={<ReportIssue />} />
         <Route path='/signUp' element={<SignUpPage/>}/>
+        <Route path='/stDashboard' element ={<StudentDashboard/>}/>
+        <Route path='/editProfile' element ={<EditProfile/>}/>
+        <Route path='/setTimetable' element ={<SetTimetable/>}/>
+        <Route path='/registerSubject' element ={<RegisterSubjects/>}/>
+        <Route path='/lecturer' element ={<LectDashboard/>}/>
+        <Route path='/addCourse' element ={<AddCourseSubject/>}/>
+        <Route path='/appointments' element ={<Appointments/>}/>
       </Routes>
     </Router>
   );

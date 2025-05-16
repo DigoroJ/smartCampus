@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Booking.css';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Booking() {
   const [service, setService] = useState('study room');
@@ -58,16 +59,19 @@ function Booking() {
 
         <label>
           Date:
-          <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+          <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required/>
         </label>
 
         <label>
           Time:
-          <input type="time" value={time} onChange={(e) => setTime(e.target.value)} />
+          <input type="time" value={time} onChange={(e) => setTime(e.target.value)} required/>
         </label>
 
         <button type="submit">Book</button>
       </form>
+      <div className="myBookingLink">
+        <p>Want to see your appointments? <Link to="/appointments">My appointments</Link></p>
+      </div>
     </div>
     </div>
   );

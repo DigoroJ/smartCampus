@@ -1,9 +1,7 @@
 import React from 'react';
-//import { useNavigate } from 'react-router-dom';
-import './dashboardStyles.css';
+import './dashboardStyles.css'; // Import the separate CSS file
 
-
-function Dashboard() {
+function StudentDashboard() {
   const menuItems = [
     {
       title: "Profile",
@@ -56,7 +54,7 @@ function Dashboard() {
       <div className="dashboard-content">
         <header className="dashboard-header">
           <h1 className="dashboard-title">
-            Admin Dashboard
+            Student Dashboard
           </h1>
           <p className="dashboard-subtitle">
             Welcome back! Manage your academic journey from one place.
@@ -98,8 +96,8 @@ function Dashboard() {
           <h2 className="stats-title">Quick Stats</h2>
           <div className="stats-grid">
             <div className="stat-card stat-blue">
-              <div className="stat-value">84</div>
-              <div className="stat-label">Active Users</div>
+              <div className="stat-value">4</div>
+              <div className="stat-label">Courses</div>
             </div>
             <div className="stat-card stat-green">
               <div className="stat-value">2</div>
@@ -110,8 +108,8 @@ function Dashboard() {
               <div className="stat-label">Notifications</div>
             </div>
             <div className="stat-card stat-amber">
-              <div className="stat-value">5</div>
-              <div className="stat-label">Issues reported</div>
+              <div className="stat-value">85%</div>
+              <div className="stat-label">Attendance</div>
             </div>
           </div>
         </div>
@@ -120,4 +118,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default StudentDashboard;

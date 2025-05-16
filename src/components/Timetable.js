@@ -1,20 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Timetable() {
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem('user'));
+  const [schedule, setSchedule] = useState([]);
 
   const handleLogout = () => {
-    localStorage.removeItem('user');
     navigate('/');
+    localStorage.removeItem('user');
   };
-  const schedule = [
-    { day: 'Monday', subject: 'Mathematics', time: '09:00 - 10:30' },
-    { day: 'Tuesday', subject: 'Physics', time: '10:45 - 12:15' },
-    { day: 'Wednesday', subject: 'Chemistry', time: '13:00 - 14:30' },
-    { day: 'Thursday', subject: 'Computer Science', time: '09:00 - 10:30' },
-    { day: 'Friday', subject: 'English', time: '11:00 - 12:30' },
-  ];
+
+  useEffect(() => {
+    let isMounted = true;
+
+    // Check if user is null or role is undefined
+    if (!user || !user.role) {
+      navigate('/');
+      return; // Exit the useEffect early
+    }
+
+    const { id, role } = user;
+
+    const fetchTimetable = async () => {
+      try {
+        const endpoint = role === 'student' ? '/api/studentTimetable' : '/api/lecturerTimetable';
+        const res = await axios.get(`http://localhost:5000${endpoint}/${id}`);
+        if (isMounted) {
+          setSchedule(res.data);
+        }
+      } catch (error) {
+        console.error('Error fetching timetable:', error);
+        alert('Failed to load timetable.');
+      }
+    };
+
+    if (id) {
+      fetchTimetable();
+    }
+
+    return () => {
+      isMounted = false;
+    };
+  }, [user, navigate]); // Add navigate to dependencies
 
   return (
     <div className="dashboard-container">
@@ -24,26 +53,33 @@ function Timetable() {
       </div>
 
       <div className="timetable">
-      <h2>Student Timetable</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Day</th>
-            <th>Subject</th>
-            <th>Time</th>
-          </tr>
-        </thead>
-        <tbody>
-          {schedule.map((entry, index) => (
-            <tr key={index}>
-              <td>{entry.day}</td>
-              <td>{entry.subject}</td>
-              <td>{entry.time}</td>
+        <h2>{user.role === 'student' ? 'Student Timetable' : 'Lecturer Timetable'}</h2>
+
+        {user.role === 'lecturer' && (
+          <button className="set-timetable-button" onClick={() => navigate('/setTimetable')}>
+            + Set Timetable
+          </button>
+        )}
+
+        <table>
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Subject</th>
+              <th>Time</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {schedule.map((entry, index) => (
+              <tr key={index}>
+                <td>{entry.day}</td>
+                <td>{entry.subject}</td>
+                <td>{entry.time}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

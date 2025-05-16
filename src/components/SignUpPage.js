@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 //import './Auth.css';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function SignUpPage() {
   const navigate = useNavigate();
@@ -24,9 +25,6 @@ function SignUpPage() {
       setForm({ ...form, [name]: value });
     }
   };
-  const handleLogin = (e) => {
-    navigate('/');
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,7 +34,7 @@ function SignUpPage() {
       navigate('/')
     } catch (err) {
       console.error(err);
-      alert('Sign up failed: ' + (err.response.data));
+      alert('Sign up failed: ' + (err.response.data.error));
     }
   };
 
@@ -97,8 +95,10 @@ function SignUpPage() {
         </select>
 
         <button onClick={handleSubmit}>Register</button>
-        <button onClick={handleLogin}>Login</button>
       </form>
+      <div className="signup-link">
+        <p>Already have an account? <Link to="/">Sign in</Link></p>
+      </div>
     </div>
   );
 }

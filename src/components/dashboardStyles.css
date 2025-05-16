@@ -1,0 +1,225 @@
+/* Dashboard Styles */
+
+/* Remove all link underlines */
+a {
+    text-decoration: none !important;
+  }
+  
+  /* Base layout */
+  .dashboard-container {
+    min-height: 100vh;
+    background-color: #f3f4f6;
+  }
+  
+  .dashboard-content {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  
+  /* Header section */
+  .dashboard-header {
+    margin-bottom: 2rem;
+  }
+  
+  .dashboard-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-align: center;
+    color: #1d4ed8;
+  }
+  
+  .dashboard-subtitle {
+    text-align: center;
+    color: #4b5563;
+    margin-top: 0.5rem;
+  }
+  
+  /* Menu cards grid */
+  .menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .menu-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  /* Menu item cards */
+  .menu-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 1.5rem;
+    height: 100%;
+    transition: all 0.3s ease;
+  }
+  
+  .menu-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .menu-card-content {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  /* Icon containers */
+  .icon-container {
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon-container svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  
+  /* Icon color variants */
+  .icon-blue {
+    background-color: #dbeafe;
+    color: #2563eb;
+  }
+  
+  .icon-green {
+    background-color: #d1fae5;
+    color: #059669;
+  }
+  
+  .icon-purple {
+    background-color: #ede9fe;
+    color: #7c3aed;
+  }
+  
+  .icon-amber {
+    background-color: #fef3c7;
+    color: #d97706;
+  }
+  
+  /* Card text content */
+  .card-content {
+    flex: 1;
+  }
+  
+  /* This has been replaced by the updated .card-title above */
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    color: #1f2937;
+  }
+  
+  .menu-card:hover .card-title {
+    color: #2563eb;
+    text-decoration: none;
+  }
+  
+  .card-description {
+    color: #6b7280;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-top: 0.25rem;
+    max-width: 90%;
+  }
+  
+  /* Chevron icon */
+  .chevron-icon {
+    color: #9ca3af;
+    transition: color 0.3s ease;
+  }
+  
+  .menu-card:hover .chevron-icon {
+    color: #3b82f6;
+  }
+  
+  .chevron-icon svg {
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  /* Stats section */
+  .stats-container {
+    margin-top: 2rem;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 1.5rem;
+  }
+  
+  .stats-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  /* Stat cards */
+  .stat-card {
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .stat-label {
+    font-size: 0.875rem;
+    color: #4b5563;
+  }
+  
+  /* Stat color variants */
+  .stat-blue {
+    background-color: #eff6ff;
+  }
+  
+  .stat-blue .stat-value {
+    color: #1d4ed8;
+  }
+  
+  .stat-green {
+    background-color: #ecfdf5;
+  }
+  
+  .stat-green .stat-value {
+    color: #047857;
+  }
+  
+  .stat-purple {
+    background-color: #f5f3ff;
+  }
+  
+  .stat-purple .stat-value {
+    color: #6d28d9;
+  }
+  
+  .stat-amber {
+    background-color: #fffbeb;
+  }
+  
+  .stat-amber .stat-value {
+    color: #b45309;
+  }

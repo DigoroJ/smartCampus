@@ -1,0 +1,69 @@
+/* Appointments.css */
+
+.dashboard-container {
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.back-button,
+.logout-button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.back-button:hover,
+.logout-button:hover {
+  background-color: #003366;
+}
+
+.appointments h2 {
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+.appointments table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.appointments th,
+.appointments td {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.appointments th {
+  background-color: #007bff;
+  color: white;
+}
+
+.appointments tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.appointments {
+   max-width: 800px;
+    margin: 60px auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}

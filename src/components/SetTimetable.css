@@ -1,0 +1,45 @@
+.set-timetable-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #f5f7fa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.set-timetable-container h2 {
+  text-align: center;
+  color: #1e3a8a;
+}
+
+.timetable-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.timetable-form label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+}
+
+.timetable-form input,
+.timetable-form select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.timetable-form button {
+  background-color: #1e3a8a;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}

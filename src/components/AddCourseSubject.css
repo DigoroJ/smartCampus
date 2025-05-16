@@ -1,0 +1,46 @@
+.add-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #dbe9ff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 64, 128, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  color: #004080;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.form-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+input,
+select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #bcdcff;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px;
+  background-color: #0073e6;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #005bb5;
+}

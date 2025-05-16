@@ -2,16 +2,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Auth.css';
+import { Link } from 'react-router-dom';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSignUp = (e) => {
-    e.preventDefault();
-    navigate('/signUp'); 
-  };
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -30,9 +27,11 @@ function LoginPage() {
       alert('Hello ' + user.name + ' ' + user.surname)
 
       if (res.data.role === 'student') {
-        navigate('/dashboard');
+        navigate('/stDashboard');
       } else if (res.data.role === 'admin') {
         navigate('/admin');
+      } else if (res.data.role === 'lecturer') {
+        navigate('/lecturer'); 
       } else {
         alert('Login successful, but unknown role.');
       }
@@ -46,20 +45,24 @@ function LoginPage() {
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <input
+          required
           type="email"
           placeholder="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          required
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <button onClick={handleLogin}>Login</button>
-        <button onClick={handleSignUp}>Sign up</button>
       </form>
+      <div className="signup-link">
+        <p>Don't have an account? <Link to="/signUp">Sign up</Link></p>
+      </div>
     </div>
   );
 }
